@@ -1,4 +1,13 @@
-/* eslint-disable no-undef */
+
+function getLegoSummary(cb) {
+  return fetch('/api/lego/summary', {
+    accept: "application/json"
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
+
 function getSummary(cb) {
   return fetch('/api/summary', {
     accept: "application/json"
@@ -23,5 +32,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getSummary };
+const Client = { getSummary, getLegoSummary };
 export default Client;

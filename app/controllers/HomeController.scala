@@ -11,4 +11,8 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   def appSummary = Action {
     Ok(Json.obj("content" -> "Scala Play React Seed"))
   }
+
+  def appLegoSummary = Action {
+    Ok(Json.obj("content" -> "Lego Summary"))
+  }
 }
