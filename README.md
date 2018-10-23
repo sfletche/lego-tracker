@@ -7,8 +7,6 @@
 
 Read more @ http://bit.ly/2A1AzEq
 
-[![Scala Play React Seed](https://github.com/yohangz/scala-play-react-seed/blob/master/react.png)](http://bit.ly/2A1AzEq)
-
 ## Version Summary
 
 * [Play Framework: 2.6.13](https://www.playframework.com/documentation/2.6.x/Home)
@@ -42,43 +40,6 @@ Read more @ http://bit.ly/2A1AzEq
 
 * This seed is not using [scala play views](https://www.playframework.com/documentation/2.6.x/ScalaTemplates). All the views and frontend associated routes are served via [React](https://reactjs.org/) code base under `ui` directory.
 
-## Complete Directory Layout
-
-```
-├── /app/                                 # The backend (scala play) sources (controllers, models, services)
-│     └── /controllers/                   # Backend controllers
-│           └── FrontendController.scala  # Asset controller wrapper serving frontend assets and artifacts
-├── /conf/                                # Configurations files and other non-compiled resources (on classpath)
-│     ├── application.conf                # Play application configuratiion file.
-│     ├── logback.xml                     # Logging configuration
-│     └── routes                          # Routes definition file
-├── /logs/                                # Log directory
-│     └── application.log                 # Application log file
-├── /project/                             # Contains project build configuration and plugins
-│     ├── FrontendCommands.scala          # Frontend build command mapping configuration
-│     ├── FrontendRunHook.scala           # Forntend build PlayRunHook (trigger frontend serve on sbt run)
-│     ├── build.properties                # Marker for sbt project
-│     └── plugins.sbt                     # SBT plugins declaration
-├── /public/                              # Frontend build artifacts will be copied to this directory
-├── /target/                              # Play project build artifact directory
-│     ├── /universal/                     # Application packaging
-│     └── /web/                           # Compiled web assets
-├── /test/                                # Contains unit tests of backend sources
-├── /ui/                                  # React frontend source (based on Create React App)
-│     ├── /public/                        # Contains the index.html file
-│     ├── /node_modules/                  # 3rd-party frontend libraries and utilities
-│     ├── /src/                           # The frontend source codebase of the application
-│     ├── .editorconfig                   # Define and maintain consistent coding styles between different editors and IDEs
-│     ├── .gitignore                      # Contains ui files to be ignored when pushing to git
-│     ├── package.json                    # NPM configuration of frontend source
-│     ├── README.md                       # Contains all user guide details for the ui
-│     └── yarn.lock                       # Yarn lock file
-├── .gitignore                            # Contains files to be ignored when pushing to git
-├── build.sbt                             # Play application SBT configuration
-├── LICENSE                               # License Agreement file
-├── README.md                             # Application user guide
-└── ui-build.sbt                          # SBT command hooks associated with frontend npm scripts 
-```
 
 ## What is new in here?
 
@@ -159,14 +120,6 @@ GET        /*file        controllers.FrontendController.assetOrDefault(file)
 * Simply replace the ui directory with the build of your choice
 * Make output directory ROOT/public/
 * Implement a proxy to localhost:9000
-
-## Looking for some other frontend framework or language choice
-
-* [Java Play React Seed](https://github.com/yohangz/java-play-react-seed)
-* [Scala Play Angular Seed](https://github.com/yohangz/scala-play-angular-seed)
-* [Java Play Angular Seed](https://github.com/yohangz/java-play-angular-seed)
-* [Scala Play Vuejs Seed](https://github.com/duncannevin/scala-play-vue-seed) by [Duncan Nevin](https://github.com/duncannevin)
-* [Java Play Vuejs Seed](https://github.com/duncannevin/java-play-vue-seed) by [Duncan Nevin](https://github.com/duncannevin)
 
 ## Contributors
 
