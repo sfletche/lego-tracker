@@ -1,6 +1,6 @@
 
-function getLegoSummary(cb) {
-  return fetch('/api/lego/summary', {
+function getLegoList(cb) {
+  return fetch('/api/lego/list', {
     accept: "application/json"
   })
     .then(checkStatus)
@@ -32,5 +32,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getSummary, getLegoSummary };
+const Client = { getSummary, getLegoList};
 export default Client;

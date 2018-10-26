@@ -9,7 +9,7 @@ GET     /                           controllers.FrontendController.index()
 GET     /api/summary                controllers.HomeController.appSummary
 
 # Lego Summary route
-GET     /api/lego/summary                controllers.HomeController.appLegoSummary
+GET     /api/lego/list                controllers.HomeController.appLegoList
 
 # Serve static assets under public directory
 GET     /*file                      controllers.FrontendController.assetOrDefault(file)

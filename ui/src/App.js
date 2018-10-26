@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 import Client from "./Client";
-
-import reactLogo from './images/react.svg';
-import playLogo from './images/play.svg';
-import scalaLogo from './images/scala.png';
 
 import './App.css';
 
@@ -17,26 +12,32 @@ const Tech = ({ match }) => {
   return <div>Current Route: {match.params.tech}</div>
 };
 
+function getRow(lego) {
+  return <div>{lego.name}</div>;
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {title: ''};
+    this.state = {title: '', legos: []};
   }
 
   async componentDidMount() {
-    Client.getLegoSummary(summary => {
+    Client.getLegoList(summary => {
       this.setState({
-        title: summary.content
+        title: summary.content.title,
+        legos: summary.content.list,
       });
     });
   }
 
   render() {
+    const { title, legos } = this.state;
     return (
       <Router>
         <div className="App">
-          <h1>{this.state.title}</h1>
+          <h1>{title}</h1>
+          {legos.map(lego => getRow(lego))}
           <Route path="/:tech" component={Tech} />
         </div>
       </Router>
