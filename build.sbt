@@ -15,3 +15,8 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2
 libraryDependencies += "com.h2database" % "h2" % "1.4.196"
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.21"
 
+libraryDependencies ++= Seq(
+  "org.scalikejdbc" %% "scalikejdbc"       % "3.3.0",
+  "com.h2database"  %  "h2"                % "1.4.197",
+  "ch.qos.logback"  %  "logback-classic"   % "1.2.3"
+)
