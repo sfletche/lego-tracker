@@ -24,15 +24,13 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     // ad-hoc session provider on the REPL
     implicit val session = AutoSession
 
-    val count: Any = {
-      sql"select count(*) from lego_kits;".map(_.toMap).single.apply()
+    val query: List[Map[String, Any]] = {
+      sql"select id from lego_kits;".map(_.toMap).list.apply()
     }
-//    val count: Int = withSQL {
-//      select
-//        .from(lego_kits)
-//    }.map(lego_kits()).list.apply()
-    println("count: ", count)
-    println("howdy");
+    query.foreach(row => println(s"id: ${row("id")}"))
+//    println("id 1: ", ids(0)("id"))
+//    println("id 2: ", ids(1)("id"))
+//    println("howdy");
     Ok(Json.obj(
       "content" -> Json.obj(
         "title" -> "Lego Summary",
