@@ -13,7 +13,7 @@ const Tech = ({ match }) => {
 };
 
 function getRow(lego) {
-  return <div>{lego.name}</div>;
+  return <div>{lego.id}</div>;
 }
 
 class App extends Component {

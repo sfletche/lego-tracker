@@ -25,21 +25,18 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     implicit val session = AutoSession
 
     val query: List[Map[String, Any]] = {
-      sql"select id from lego_kits;".map(_.toMap).list.apply()
+      sql"select id, name, completed from lego_kits;".map(_.toMap).list.apply()
     }
     query.foreach(row => println(s"id: ${row("id")}"))
-//    println("id 1: ", ids(0)("id"))
-//    println("id 2: ", ids(1)("id"))
-//    println("howdy");
     Ok(Json.obj(
       "content" -> Json.obj(
         "title" -> "Lego Summary",
         "list" -> Seq(Json.obj(
-          "id" -> "31058",
+          "id" -> s"${query(0)("id")}",
           "name" -> "LEGO Creator Mighty Dinosaur",
           "completed" -> true
         ),Json.obj(
-          "id" -> "31062",
+          "id" -> s"${query(1)("id")}",
           "name" -> "LEGO Creator Robo Explorer",
           "completed" -> true
         ))
