@@ -13,7 +13,13 @@ const Tech = ({ match }) => {
 };
 
 function getRow(lego) {
-  return <div>{lego.id}</div>;
+  return (
+    <tr key={lego.id}>
+      <td>{lego.id}</td>
+      <td>{lego.name}</td>
+      <td>{lego.completed}</td>
+    </tr>
+  );
 }
 
 class App extends Component {
@@ -37,7 +43,18 @@ class App extends Component {
       <Router>
         <div className="App">
           <h1>{title}</h1>
-          {legos.map(lego => getRow(lego))}
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {legos.map(lego => getRow(lego))}
+            </tbody>
+          </table>
           <Route path="/:tech" component={Tech} />
         </div>
       </Router>
