@@ -27,20 +27,16 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     val query: List[Map[String, Any]] = {
       sql"select id, name, completed from lego_kits;".map(_.toMap).list.apply()
     }
-    query.foreach(row => println(s"id: ${row("id")}"))
+    
     Ok(Json.obj(
-      "content" -> Json.obj(
+      "content" -> Json.toJsFieldJsValueWrapper(Json.obj(
         "title" -> "Lego Summary",
-        "list" -> Seq(Json.obj(
-          "id" -> s"${query(0)("id")}",
-          "name" -> "LEGO Creator Mighty Dinosaur",
-          "completed" -> true
-        ),Json.obj(
-          "id" -> s"${query(1)("id")}",
-          "name" -> "LEGO Creator Robo Explorer",
-          "completed" -> true
+        "list" -> query.map(row => Json.obj(
+          "id" -> s"${row("id")}",
+          "name" -> s"${row("name")}",
+          "completed" -> s"${row("completed")}"
         ))
-      )
+      ))
     ))
   }
 }
