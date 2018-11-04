@@ -6,21 +6,13 @@ import {
 
 import Client from "./Client";
 
+import LegoTable from './LegoTable';
+
 import './App.css';
 
 const Tech = ({ match }) => {
   return <div>Current Route: {match.params.tech}</div>
 };
-
-function getRow(lego) {
-  return (
-    <tr key={lego.id}>
-      <td>{lego.id}</td>
-      <td>{lego.name}</td>
-      <td>{lego.completed}</td>
-    </tr>
-  );
-}
 
 class App extends Component {
   constructor(props) {
@@ -43,18 +35,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <h1>{title}</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Completed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {legos.map(lego => getRow(lego))}
-            </tbody>
-          </table>
+          <LegoTable legos={legos} />
           <Route path="/:tech" component={Tech} />
         </div>
       </Router>

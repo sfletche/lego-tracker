@@ -27,7 +27,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     val query: List[Map[String, Any]] = {
       sql"select id, name, completed from lego_kits;".map(_.toMap).list.apply()
     }
-    
+
     Ok(Json.obj(
       "content" -> Json.toJsFieldJsValueWrapper(Json.obj(
         "title" -> "Lego Summary",
