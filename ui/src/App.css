@@ -11,6 +11,14 @@
   justify-content: center;
 }
 
+th, td {
+  padding-right: 20px;
+}
+
+td {
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
