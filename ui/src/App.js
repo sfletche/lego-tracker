@@ -3,6 +3,10 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 
 import Client from "./Client";
 
@@ -18,6 +22,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {title: '', legos: []};
+    library.add(faEdit);
+    library.add(faTrash);
   }
 
   async componentDidMount() {
