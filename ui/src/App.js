@@ -5,12 +5,13 @@ import {
 } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 import Client from "./Client";
 
 import LegoTable from './LegoTable';
+import LegoForm from './LegoForm';
 
 import './App.css';
 
@@ -23,7 +24,7 @@ class App extends Component {
     super(props);
     this.state = {title: '', legos: []};
     library.add(faEdit);
-    library.add(faTrash);
+    library.add(faTrashAlt);
   }
 
   async componentDidMount() {
@@ -41,7 +42,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <h1>{title}</h1>
-          <LegoTable legos={legos} />
+          <Route exact path="/" render={(props) => <LegoTable {...props} legos={legos} />} />
+          <Route path="/edit/:id" render={(props) => <LegoForm {...props} />} />
           <Route path="/:tech" component={Tech} />
         </div>
       </Router>

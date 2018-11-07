@@ -2,7 +2,7 @@ import React from 'react';
 
 import LegoTableRow from './LegoTableRow';
 
-export default function LegoTable({ legos }) {
+export default function LegoTable({ legos, history }) {
   return (
     <div className="table--center">
       <table>
@@ -16,7 +16,7 @@ export default function LegoTable({ legos }) {
           </tr>
         </thead>
         <tbody>
-          {legos.map(lego => <LegoTableRow lego={lego} key={lego.id} />)}
+          {legos.map(lego => <LegoTableRow lego={lego} history={history} key={lego.id} />)}
         </tbody>
       </table>
     </div>
