@@ -30,7 +30,6 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 
     Ok(Json.obj(
       "content" -> Json.toJsFieldJsValueWrapper(Json.obj(
-        "title" -> "Lego Summary",
         "list" -> query.map(row => Json.obj(
           "id" -> s"${row("id")}",
           "name" -> s"${row("name")}",

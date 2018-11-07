@@ -7,9 +7,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
-
-import Client from "./Client";
-
 import LegoTable from './LegoTable';
 import LegoForm from './LegoForm';
 
@@ -22,27 +19,16 @@ const Tech = ({ match }) => {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {title: '', legos: []};
     library.add(faEdit);
     library.add(faTrashAlt);
   }
 
-  async componentDidMount() {
-    Client.getLegoList(summary => {
-      this.setState({
-        title: summary.content.title,
-        legos: summary.content.list,
-      });
-    });
-  }
-
   render() {
-    const { title, legos } = this.state;
     return (
       <Router>
         <div className="App">
-          <h1>{title}</h1>
-          <Route exact path="/" render={(props) => <LegoTable {...props} legos={legos} />} />
+          <h1>LEGO Summary</h1>
+          <Route exact path="/" render={(props) => <LegoTable {...props} />} />
           <Route path="/edit/:id" render={(props) => <LegoForm {...props} />} />
           <Route path="/:tech" component={Tech} />
         </div>
