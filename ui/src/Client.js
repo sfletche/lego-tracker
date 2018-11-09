@@ -8,6 +8,15 @@ function getLegoList(cb) {
     .then(cb);
 }
 
+function getLegoDetails(cb, id) {
+  return fetch(`/api/lego/${id}`, {
+    accept: "application/json"
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
+
 function getSummary(cb) {
   return fetch('/api/summary', {
     accept: "application/json"
@@ -32,5 +41,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getSummary, getLegoList};
+const Client = { getSummary, getLegoList, getLegoDetails};
 export default Client;
