@@ -5,7 +5,7 @@ import Client from "./Client";
 export default class LegoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { details: null };
+    this.state = { details: {} };
   }
 
   async componentDidMount() {
@@ -20,12 +20,30 @@ export default class LegoForm extends React.Component {
     const { history } = this.props;
     const { details } = this.state;
     console.log('details', details);
-    return details && (
+    return (
       <div>
         <div>Lego Form</div>
-        <div>ID: {details.id}</div>
-        <div>Name: {details.name}</div>
-        <div>Completed: {details.completed}</div>
+        <form>
+          <div>
+            <label>
+              ID:
+              <input type="text" value={details.id} name="id" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Name:
+              <input type="text" value={details.name} name="name" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Completed:
+              <input type="text" value={details.completed} name="name" />
+            </label>
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
         <div onClick={() => history.push('/')}>Back</div>
       </div>
     );
