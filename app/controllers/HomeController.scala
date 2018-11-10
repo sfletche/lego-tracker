@@ -49,7 +49,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 
     case class Lego(id: String, name: String, completed: Boolean)
     val details: Option[Lego] = {
-      sql"select id, name, completed from lego_kits where id = 31058;".map(rs =>
+      sql"select id, name, completed from lego_kits where id = ${id};".map(rs =>
         Lego(rs.string("id"), rs.string("name"), rs.boolean("completed"))).single.apply()
     }
 
