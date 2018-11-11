@@ -6,6 +6,7 @@ export default class LegoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { details: {} };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
@@ -16,14 +17,23 @@ export default class LegoForm extends React.Component {
     }, this.props.match.params.id);
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    Client.setLegoDetails(response => {
+      this.setState({
+        details: response.content,
+      });
+    }, data);
+  }
+
   render() {
     const { history } = this.props;
     const { details } = this.state;
-    console.log('details', details);
     return (
       <div>
         <div>Lego Form</div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label>
               ID:
@@ -42,7 +52,7 @@ export default class LegoForm extends React.Component {
               <input type="text" value={details.completed} name="name" />
             </label>
           </div>
-          <input type="submit" value="Submit" />
+          <button>Submit</button>
         </form>
         <div onClick={() => history.push('/')}>Back</div>
       </div>

@@ -17,6 +17,19 @@ function getLegoDetails(cb, id) {
     .then(cb);
 }
 
+function setLegoDetails(cb, data) {
+  return fetch(`/api/lego/update`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: data,
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(cb);
+}
+
 function getSummary(cb) {
   return fetch('/api/summary', {
     accept: "application/json"
@@ -41,5 +54,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getSummary, getLegoList, getLegoDetails};
+const Client = { getSummary, getLegoList, getLegoDetails, setLegoDetails};
 export default Client;

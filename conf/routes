@@ -11,8 +11,9 @@ GET     /api/summary                controllers.HomeController.appSummary
 # Lego Summary route
 GET     /api/lego/list                controllers.HomeController.appLegoList
 
-# Lego Summary route
-GET     /api/lego/:id                 controllers.HomeController.legoDetails(id: String)
+# Lego Details
+GET     /api/lego/:id                 controllers.HomeController.getLegoDetails(id: String)
+POST    /api/lego/update                 controllers.HomeController.setLegoDetails
 
 # Serve static assets under public directory
 GET     /*file                      controllers.FrontendController.assetOrDefault(file)
