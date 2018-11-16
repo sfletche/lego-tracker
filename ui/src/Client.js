@@ -23,7 +23,7 @@ function setLegoDetails(cb, data) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    body: data,
+    body: JSON.stringify(data),
   })
     .then(checkStatus)
     .then(parseJSON)
