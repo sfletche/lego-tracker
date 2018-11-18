@@ -7,6 +7,16 @@ DB: MySQL
 ## Getting Started
 
 * Fork or clone this repository.
+* Install MySql
+  * `mysqld` to start
+  * `mysql -u root -p` (to enter mysql cli)
+* Create db and table
+  * `create database legos;`
+  * `use legos;`
+  * `CREATE TABLE lego_kits (id INT, name VARCHAR(30), completed BOOL);`
+* `npm install`
+* Run the app
+  * `sbt run`
 
 * Used any of the following [SBT](http://www.scala-sbt.org/) commands which will also trigger frontend associated npm scripts.
 
