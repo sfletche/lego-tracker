@@ -1,8 +1,36 @@
 # Lego Tracker
 
-FE: React
-BE: Scala
-DB: MySQL
+## To Do
+
+### Views / Endpoints
+* Summary View 
+  * /
+  * Get summary list /legos
+  * Delete details /legos/{id}
+* Edit Lego 
+  * /edit
+  * Get details /legos/{id}
+  * Put details /legos/{id}
+* Add lego 
+  * /add
+  * Post details /legos/{id}
+* Add new LEGO form (with button from table view)
+* Edit Screen contains form to input data
+  * create form for elements in lego data model
+  * add verification
+  * add save button 
+  * add cancel button (both buttons redirect to table view)
+* Delete button
+  * no delete screen, just remove row (with "are you sure" alert)
+* Add thumbnail image 
+  * maybe store a link…?
+
+
+## Tech Stack
+
+* FE: React
+* BE: Scala
+* DB: MySQL
 
 ## Getting Started
 
