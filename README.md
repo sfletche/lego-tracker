@@ -14,6 +14,7 @@
 * Add lego 
   * /add
   * Post details /legos/{id}
+## Other Stuff
 * Add new LEGO form (with button from table view)
 * Edit Screen contains form to input data
   * create form for elements in lego data model
